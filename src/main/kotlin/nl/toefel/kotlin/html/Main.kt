@@ -16,12 +16,18 @@ fun main(args: Array<String>) {
             }
             div {
                 a {
-                    defaultAttributes.forEach{
+                    // use property syntax, requires a kotlin field property for each property
+                    href = "chef"
+
+                    // to is an infix operator provided by Tag, more flexible but less readable
+                    "target" to "_blank"
+
+                    // infix operator allows application of map
+                    defaultAttributes.forEach {
                         it.key to it.value
                     }
-                    // custom attributes
 
-                    "href" to "blaat"
+                    // + is a unaryOperator, which creates a text content.
                     +"linkje"
                 }
             }
